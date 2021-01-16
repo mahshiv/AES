@@ -143,9 +143,9 @@ void encrypt(unsigned char *input, unsigned char *extendedKey)
 
 unsigned int ascii2hex(unsigned char b)
 {
-    if (b > 'a')
+    if (b >= 'a')
         return 10 + b - 'a';
-    if (b > 'A')
+    if (b >= 'A')
         return 10 + b - 'A';
     return b - '0';
 }
@@ -203,12 +203,6 @@ int main()
     }
 
     extendKey(key, extendedKey);
-
-    // for (int i = 0; i < LENGTH * (ROUND + 1); i++)
-    // {
-    //     cout << hex << (unsigned int)(extendedKey[i]) << " ";
-    // }
-    // cout << endl;
 
     encrypt(input, extendedKey);
 
